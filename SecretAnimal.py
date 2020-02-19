@@ -1,4 +1,5 @@
 import random
+import sys
 
 print('What is your name?')
 name=input()
@@ -18,24 +19,27 @@ print(name+', I am thinking an animal')
 print('Take a guess')
 animal_guess=input()
 
-if SecretAnimal != animal_guess:
-	print('Nope, I could give you a clue ', SecretAnimal['domestic'], ' a domestic one')
-
-print('Try again')
-animal_guess=input()
-if SecretAnimal != animal_guess:
-	print ("nope, I could give you a second clue,", "it", SecretAnimal ['sound'])
-
-print('Try again')
-animal_guess=input()
-if SecretAnimal != animal_guess:
-	print ("nope, I could give you a third clue,", "it", SecretAnimal ['clue'])
-
-print('Last chance')
-animal_guess=input()
-        
-        
-if SecretAnimal==SecretAnimal:
-    print('Perfect!!, '+name+' you have guessed my animal')
+if SecretAnimal['name']!=animal_guess:
+    print ('Nope, I could give you a clue ', SecretAnimal['domestic'], ' a domestic one. '
+    'Try Again')
+    animal_guess=input()
 else:
-    print('Noooo, I was thinking in a '+ str(SecretAnimal))
+    print('Perfect!!, '+name+' you have guessed my animal')
+    sys.exit()
+
+if SecretAnimal['name'] != animal_guess:
+    print ("nope, I could give you a second clue,", "it", SecretAnimal ['sound'])
+    animal_guess=input()
+else:
+    print('Perfect!!, '+name+' you have guessed my animal')
+    sys.exit()
+
+    
+if SecretAnimal['name']!= animal_guess:
+    print ("nope, I could give you a third clue,", "it", SecretAnimal ['clue'])
+    print('Last chance')
+    animal_guess=input()
+else:
+    print('Perfect!!, '+name+' you have guessed my animal')
+    sys.exit()
+ 
